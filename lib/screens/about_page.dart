@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/app_header.dart';
 import '../widgets/call_buttons.dart';
 import '../widgets/sidebar.dart';
+import '../widgets/team_card.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -38,6 +39,34 @@ class _AboutPageState extends State<AboutPage> {
       'title': 'We\'re connected to the digital community',
       'description':
           'We can frequently be found speaking at the industry events as well as hosting various educational tours and workshops in our office.',
+    },
+  ];
+
+  // Team members data
+  final List<Map<String, String>> _teamMembers = const [
+    {
+      'name': 'Chocho De Amponn',
+      'position': 'Developer',
+      'description':
+          'Chocho is a skilled full-stack developer with over 8 years of experience in building scalable web applications. He specializes in React, Node.js, and Flutter development.\n\nHis passion for clean code and user-centric design has helped numerous clients achieve their business goals through innovative digital solutions.',
+    },
+    {
+      'name': 'Nica Alipio',
+      'position': 'Designer',
+      'description':
+          'Nica is a creative UI/UX designer who brings beautiful and intuitive interfaces to life. With a keen eye for detail and a deep understanding of user behavior, she crafts experiences that delight users.\n\nHer award-winning designs have been featured on multiple design platforms and have helped businesses increase their conversion rates significantly.',
+    },
+    {
+      'name': 'Alnica Alipio',
+      'position': 'Project Manager',
+      'description':
+          'Alnica is an experienced project manager who ensures every project is delivered on time and within budget. With excellent communication skills and a strategic mindset, she bridges the gap between clients and development teams.\n\nHer leadership and organizational skills have been instrumental in successfully delivering over 100 projects to satisfied clients worldwide.',
+    },
+    {
+      'name': 'Berna Batumbakal',
+      'position': 'Developer',
+      'description':
+          'Berna is a backend specialist with expertise in database architecture and API development. She has a strong background in Python, PostgreSQL, and cloud infrastructure.\n\nHer technical expertise and problem-solving abilities ensure that all applications are robust, secure, and perform optimally under any load.',
     },
   ];
 
@@ -147,6 +176,36 @@ class _AboutPageState extends State<AboutPage> {
                       ],
                     );
                   }).toList(),
+
+                  // Team Section
+                  const SizedBox(height: 16),
+                  const Center(
+                    child: Text(
+                      'Fullstack HQ Team',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+
+                  // Team cards in 2 columns
+                  Wrap(
+                    spacing: 24,
+                    runSpacing: 32,
+                    alignment: WrapAlignment.center,
+                    children: _teamMembers.map((member) {
+                      return SizedBox(
+                        width: (MediaQuery.of(context).size.width - 72) / 2,
+                        child: TeamCard(
+                          name: member['name']!,
+                          position: member['position']!,
+                          description: member['description'],
+                        ),
+                      );
+                    }).toList(),
+                  ),
 
                   const SizedBox(height: 32),
                 ],
