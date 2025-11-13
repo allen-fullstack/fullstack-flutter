@@ -103,7 +103,22 @@ class _AboutPageState extends State<AboutPage> {
                       fit: BoxFit.contain,
                     ),
                   ),
+                  const SizedBox(height: 48),
+
+                  // Image Section 1
+                  Container(
+                    constraints: const BoxConstraints(minHeight: 400),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                      child: Icon(Icons.image, size: 80, color: Colors.grey),
+                    ),
+                  ),
                   const SizedBox(height: 32),
+
+                  // Text Section 1
                   const Text(
                     'About Fullstack HQ',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
@@ -116,6 +131,82 @@ class _AboutPageState extends State<AboutPage> {
                     'them to increase efficiency & reduce development costs.',
                     style: TextStyle(fontSize: 14, height: 1.5),
                   ),
+                  const SizedBox(height: 48),
+
+                  // Image Section 2
+                  Container(
+                    constraints: const BoxConstraints(minHeight: 400),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                      child: Icon(Icons.image, size: 80, color: Colors.grey),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+
+                  // Text Section 2
+                  const Text(
+                    'Award-Winning Company',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'Our company has been awarded an "Honorable mention" from Awwwards and three awards from CSSDesignAwards. Those awards being Best UI Design, UX Design and Innovation. We\'re also featured on Gatsby, React Static and JAMstack official websites.',
+                    style: TextStyle(fontSize: 14, height: 1.5),
+                  ),
+                  const SizedBox(height: 48),
+
+                  // Image Section 3
+                  Container(
+                    constraints: const BoxConstraints(minHeight: 400),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                      child: Icon(Icons.image, size: 80, color: Colors.grey),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+
+                  // Text Section 3
+                  const Text(
+                    'Agile Team Organization',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'We aren\'t one of those \'expert\' outsourcing companies that try to do everything. We specialize in one thing – and do it really well, full stack development. Fullstack HQ brings agile development teams with difficult-to-find expertise to execute faster and more cost effectively than traditional methods.',
+                    style: TextStyle(fontSize: 14, height: 1.5),
+                  ),
+                  const SizedBox(height: 48),
+
+                  // Image Section 4
+                  Container(
+                    constraints: const BoxConstraints(minHeight: 400),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                      child: Icon(Icons.image, size: 80, color: Colors.grey),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+
+                  // Text Section 4
+                  const Text(
+                    'We\'re connected to the digital community',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 12),
+                  const Text(
+                    'We can frequently be found speaking at the industry events as well as hosting various educational tours and workshops in our office.',
+                    style: TextStyle(fontSize: 14, height: 1.5),
+                  ),
+                  const SizedBox(height: 32),
                 ],
               ),
             ),
