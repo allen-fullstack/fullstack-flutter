@@ -35,7 +35,7 @@ class Testimonials extends StatelessWidget {
                       position: testimonial['position']!,
                       imagePath: testimonial['image'],
                     ),
-                    const SizedBox(height: 24),
+                    const SizedBox(height: 8),
                   ],
                 );
               }).toList(),

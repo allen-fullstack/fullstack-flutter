@@ -119,7 +119,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 48),
               // Testimonials section
               Testimonials(testimonials: _testimonials),
-              const SizedBox(height: 48),
+              const SizedBox(height: 12),
               // Footer CTA section
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
