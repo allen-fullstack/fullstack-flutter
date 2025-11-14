@@ -4,6 +4,7 @@ import '../widgets/sidebar.dart';
 import '../widgets/service_card.dart';
 import '../widgets/brands.dart';
 import '../widgets/testimonials.dart';
+import '../widgets/footer_cta.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -117,7 +118,24 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 48),
               // Testimonials section
               Testimonials(testimonials: _testimonials),
-              const SizedBox(height: 32),
+              const SizedBox(height: 48),
+              // Footer CTA section
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: FooterCta(
+                  title: '7-day money-back guarantee',
+                  description:
+                      'We stand by our work. Love it or get your money back in 7 days.',
+                  imagePath: 'assets/images/cta_homepage.png',
+                  onCallPressed: () {
+                    // TODO: Open Calendly or booking page
+                  },
+                  onChatPressed: () {
+                    // TODO: Open chat or contact form
+                  },
+                ),
+              ),
+              const SizedBox(height: 48),
             ],
           ),
         ),
