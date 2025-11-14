@@ -2,9 +2,42 @@ import 'package:flutter/material.dart';
 import '../widgets/app_header.dart';
 import '../widgets/sidebar.dart';
 import '../widgets/service_card.dart';
+import '../widgets/brands.dart';
+import '../widgets/testimonials.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  // Brand logos
+  final List<String> _brandLogos = const [
+    'assets/images/logo.png',
+    'assets/images/logo.png',
+    'assets/images/logo.png',
+    'assets/images/logo.png',
+    'assets/images/logo.png',
+  ];
+
+  // Testimonials data
+  final List<Map<String, String>> _testimonials = const [
+    {
+      'quote':
+          'Working with Fullstack HQ has been a game-changer for our business. Their team delivered exceptional results on time and within budget.',
+      'name': 'Sarah Johnson',
+      'position': 'CEO, TechStart Inc.',
+    },
+    {
+      'quote':
+          'The quality of work and attention to detail is outstanding. They transformed our vision into reality and exceeded all our expectations.',
+      'name': 'Michael Chen',
+      'position': 'Product Manager, InnovateCo',
+    },
+    {
+      'quote':
+          'Professional, reliable, and incredibly talented. Fullstack HQ has become an integral part of our development process.',
+      'name': 'Emily Rodriguez',
+      'position': 'CTO, Digital Solutions Ltd.',
+    },
+  ];
 
   // Service cards data
   final List<Map<String, String>> _services = const [
@@ -62,7 +95,7 @@ class HomePage extends StatelessWidget {
               // Service cards
               Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 260),
+                  constraints: const BoxConstraints(maxWidth: 300),
                   child: Column(
                     children: _services.map((service) {
                       return Column(
@@ -79,6 +112,12 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+              // Brands section
+              Brands(brandLogos: _brandLogos),
+              const SizedBox(height: 48),
+              // Testimonials section
+              Testimonials(testimonials: _testimonials),
+              const SizedBox(height: 32),
             ],
           ),
         ),
