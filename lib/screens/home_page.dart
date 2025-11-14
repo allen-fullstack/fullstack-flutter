@@ -5,6 +5,7 @@ import '../widgets/service_card.dart';
 import '../widgets/brands.dart';
 import '../widgets/testimonials.dart';
 import '../widgets/footer_cta.dart';
+import '../widgets/footer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -136,6 +137,8 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 48),
+              // Footer
+              const Footer(),
             ],
           ),
         ),

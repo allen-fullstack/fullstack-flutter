@@ -3,6 +3,7 @@ import '../widgets/app_header.dart';
 import '../widgets/call_buttons.dart';
 import '../widgets/sidebar.dart';
 import '../widgets/team_card.dart';
+import '../widgets/footer.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -208,6 +209,8 @@ class _AboutPageState extends State<AboutPage> {
                   ),
 
                   const SizedBox(height: 32),
+                  // Footer
+                  const Footer(),
                 ],
               ),
             ),
