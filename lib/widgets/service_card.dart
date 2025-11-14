@@ -35,13 +35,19 @@ class _ServiceCardState extends State<ServiceCard> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(_isPressed ? 0.15 : 0.08),
-              blurRadius: _isPressed ? 20 : 10,
-              offset: Offset(0, _isPressed ? 8 : 4),
-            ),
-          ],
+          border: Border.all(
+            color: _isPressed ? Colors.transparent : const Color(0xFFEFEFEF),
+            width: 1,
+          ),
+          boxShadow: _isPressed
+              ? [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.15),
+                    blurRadius: 20,
+                    offset: const Offset(0, 8),
+                  ),
+                ]
+              : [],
         ),
         child: Column(
           children: [
