@@ -5,6 +5,7 @@ import '../widgets/sidebar.dart';
 import '../widgets/team_card.dart';
 import '../widgets/brands.dart';
 import '../widgets/testimonials.dart';
+import '../widgets/about_us_cta.dart';
 import '../widgets/footer.dart';
 
 class AboutPage extends StatefulWidget {
@@ -85,16 +86,16 @@ class _AboutPageState extends State<AboutPage> {
           'Chocho is a skilled full-stack developer with over 8 years of experience in building scalable web applications. He specializes in React, Node.js, and Flutter development.\n\nHis passion for clean code and user-centric design has helped numerous clients achieve their business goals through innovative digital solutions.',
     },
     {
-      'name': 'Nica Alipio',
+      'name': 'Almonidas Purampunidas',
       'position': 'Designer',
       'description':
-          'Nica is a creative UI/UX designer who brings beautiful and intuitive interfaces to life. With a keen eye for detail and a deep understanding of user behavior, she crafts experiences that delight users.\n\nHer award-winning designs have been featured on multiple design platforms and have helped businesses increase their conversion rates significantly.',
+          'Almonidas is a creative UI/UX designer who brings beautiful and intuitive interfaces to life. With a keen eye for detail and a deep understanding of user behavior, she crafts experiences that delight users.\n\nHer award-winning designs have been featured on multiple design platforms and have helped businesses increase their conversion rates significantly.',
     },
     {
-      'name': 'Alnica Alipio',
+      'name': 'Sill Cah',
       'position': 'Project Manager',
       'description':
-          'Alnica is an experienced project manager who ensures every project is delivered on time and within budget. With excellent communication skills and a strategic mindset, she bridges the gap between clients and development teams.\n\nHer leadership and organizational skills have been instrumental in successfully delivering over 100 projects to satisfied clients worldwide.',
+          'Sill is an experienced project manager who ensures every project is delivered on time and within budget. With excellent communication skills and a strategic mindset, she bridges the gap between clients and development teams.\n\nHer leadership and organizational skills have been instrumental in successfully delivering over 100 projects to satisfied clients worldwide.',
     },
     {
       'name': 'Berna Batumbakal',
@@ -162,95 +163,121 @@ class _AboutPageState extends State<AboutPage> {
 
             // Scrollable content
             Expanded(
-              child: ListView(
+              child: SingleChildScrollView(
                 controller: _ctrl,
                 physics: const ClampingScrollPhysics(),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 16,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 16),
+                          const SizedBox(height: 32),
+                          const Center(
+                            child: Text(
+                              'The smarter way to\noutsource web\ndevelopment projects',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                height: 1.2,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          const CallButtons(),
+                          const SizedBox(height: 32),
+                          Center(
+                            child: Image.asset(
+                              'assets/images/bootstraps.png',
+                              width: 350,
+                              height: 150,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          const SizedBox(height: 48),
+
+                          // Map through sections to generate image + text blocks
+                          ..._sections.map((section) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                _ImageSection(),
+                                const SizedBox(height: 32),
+                                _TextSection(
+                                  title: section['title']!,
+                                  description: section['description']!,
+                                ),
+                                const SizedBox(height: 48),
+                              ],
+                            );
+                          }).toList(),
+
+                          // Team Section
+                          const SizedBox(height: 16),
+                          const Center(
+                            child: Text(
+                              'Fullstack HQ Team',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 32),
+
+                          // Team cards in 2 columns
+                          Wrap(
+                            spacing: 24,
+                            runSpacing: 32,
+                            alignment: WrapAlignment.center,
+                            children: _teamMembers.map((member) {
+                              return SizedBox(
+                                width:
+                                    (MediaQuery.of(context).size.width - 72) /
+                                    2,
+                                child: TeamCard(
+                                  name: member['name']!,
+                                  position: member['position']!,
+                                  description: member['description'],
+                                ),
+                              );
+                            }).toList(),
+                          ),
+
+                          const SizedBox(height: 48),
+                          // Testimonials section
+                          Testimonials(testimonials: _testimonials),
+                          const SizedBox(height: 48),
+                          // Brands section
+                          Brands(brandLogos: _brandLogos),
+                          const SizedBox(height: 48),
+                        ],
+                      ),
+                    ),
+
+                    // About Us CTA section (full width, outside of padding)
+                    AboutUsCta(
+                      title: 'Grow with us',
+                      description:
+                          'Play a major role in one of the fastest growing tech companies in the Philippines.',
+                      buttonText: 'View current vacancies',
+                      onButtonPressed: () {
+                        // TODO: Navigate to careers page
+                      },
+                    ),
+
+                    // Footer section
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 48,
+                      ),
+                      child: Footer(),
+                    ),
+                  ],
                 ),
-                children: [
-                  const SizedBox(height: 32),
-                  const Center(
-                    child: Text(
-                      'The smarter way to\noutsource web\ndevelopment projects',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        height: 1.2,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  const CallButtons(),
-                  const SizedBox(height: 32),
-                  Center(
-                    child: Image.asset(
-                      'assets/images/bootstraps.png',
-                      width: 350,
-                      height: 150,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                  const SizedBox(height: 48),
-
-                  // Map through sections to generate image + text blocks
-                  ..._sections.map((section) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _ImageSection(),
-                        const SizedBox(height: 32),
-                        _TextSection(
-                          title: section['title']!,
-                          description: section['description']!,
-                        ),
-                        const SizedBox(height: 48),
-                      ],
-                    );
-                  }).toList(),
-
-                  // Team Section
-                  const SizedBox(height: 16),
-                  const Center(
-                    child: Text(
-                      'Fullstack HQ Team',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 32),
-
-                  // Team cards in 2 columns
-                  Wrap(
-                    spacing: 24,
-                    runSpacing: 32,
-                    alignment: WrapAlignment.center,
-                    children: _teamMembers.map((member) {
-                      return SizedBox(
-                        width: (MediaQuery.of(context).size.width - 72) / 2,
-                        child: TeamCard(
-                          name: member['name']!,
-                          position: member['position']!,
-                          description: member['description'],
-                        ),
-                      );
-                    }).toList(),
-                  ),
-
-                  const SizedBox(height: 48),
-                  // Brands section
-                  Brands(brandLogos: _brandLogos),
-                  const SizedBox(height: 48),
-                  // Testimonials section
-                  Testimonials(testimonials: _testimonials),
-                  const SizedBox(height: 32),
-                  // Footer
-                  const Footer(),
-                ],
               ),
             ),
           ],
