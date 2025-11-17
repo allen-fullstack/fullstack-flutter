@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Brands extends StatelessWidget {
   final List<String> brandLogos;
@@ -24,9 +25,12 @@ class Brands extends StatelessWidget {
           children: brandLogos.asMap().entries.map((entry) {
             return Container(
               width: (MediaQuery.of(context).size.width - 72) / 2,
-              height: 80,
-              padding: const EdgeInsets.all(16),
-              child: Image.asset(brandLogos[entry.key], fit: BoxFit.contain),
+              height: 50,
+              padding: const EdgeInsets.all(8),
+              child: SvgPicture.asset(
+                brandLogos[entry.key],
+                fit: BoxFit.contain,
+              ),
             );
           }).toList(),
         ),

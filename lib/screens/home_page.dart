@@ -12,11 +12,11 @@ class HomePage extends StatelessWidget {
 
   // Brand logos
   final List<String> _brandLogos = const [
-    'assets/images/logo.png',
-    'assets/images/logo.png',
-    'assets/images/logo.png',
-    'assets/images/logo.png',
-    'assets/images/logo.png',
+    'assets/images/gatsby.svg',
+    'assets/images/awwards.svg',
+    'assets/images/css_design.svg',
+    'assets/images/jamstack.svg',
+    'assets/images/react_static.svg',
   ];
 
   // Testimonials data

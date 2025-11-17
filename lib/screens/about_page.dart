@@ -3,6 +3,7 @@ import '../widgets/app_header.dart';
 import '../widgets/call_buttons.dart';
 import '../widgets/sidebar.dart';
 import '../widgets/team_card.dart';
+import '../widgets/brands.dart';
 import '../widgets/testimonials.dart';
 import '../widgets/footer.dart';
 
@@ -16,6 +17,15 @@ class _AboutPageState extends State<AboutPage> {
   final ScrollController _ctrl = ScrollController();
   bool _showHeader = true;
   double _lastOffset = 0;
+
+  // Brand logos
+  final List<String> _brandLogos = const [
+    'assets/images/gatsby.svg',
+    'assets/images/awwards.svg',
+    'assets/images/css_design.svg',
+    'assets/images/jamstack.svg',
+    'assets/images/react_static.svg',
+  ];
 
   // Content sections data
   final List<Map<String, String>> _sections = const [
@@ -231,6 +241,9 @@ class _AboutPageState extends State<AboutPage> {
                     }).toList(),
                   ),
 
+                  const SizedBox(height: 48),
+                  // Brands section
+                  Brands(brandLogos: _brandLogos),
                   const SizedBox(height: 48),
                   // Testimonials section
                   Testimonials(testimonials: _testimonials),
