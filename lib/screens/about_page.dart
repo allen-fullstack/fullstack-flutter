@@ -3,6 +3,7 @@ import '../widgets/app_header.dart';
 import '../widgets/call_buttons.dart';
 import '../widgets/sidebar.dart';
 import '../widgets/team_card.dart';
+import '../widgets/testimonials.dart';
 import '../widgets/footer.dart';
 
 class AboutPage extends StatefulWidget {
@@ -40,6 +41,28 @@ class _AboutPageState extends State<AboutPage> {
       'title': 'We\'re connected to the digital community',
       'description':
           'We can frequently be found speaking at the industry events as well as hosting various educational tours and workshops in our office.',
+    },
+  ];
+
+  // Testimonials data
+  final List<Map<String, String>> _testimonials = const [
+    {
+      'quote':
+          'Working with Fullstack HQ has been a game-changer for our business. Their team delivered exceptional results on time and within budget.',
+      'name': 'Sarah Johnson',
+      'position': 'CEO, TechStart Inc.',
+    },
+    {
+      'quote':
+          'The quality of work and attention to detail is outstanding. They transformed our vision into reality and exceeded all our expectations.',
+      'name': 'Michael Chen',
+      'position': 'Product Manager, InnovateCo',
+    },
+    {
+      'quote':
+          'Professional, reliable, and incredibly talented. Fullstack HQ has become an integral part of our development process.',
+      'name': 'Emily Rodriguez',
+      'position': 'CTO, Digital Solutions Ltd.',
     },
   ];
 
@@ -208,6 +231,9 @@ class _AboutPageState extends State<AboutPage> {
                     }).toList(),
                   ),
 
+                  const SizedBox(height: 48),
+                  // Testimonials section
+                  Testimonials(testimonials: _testimonials),
                   const SizedBox(height: 32),
                   // Footer
                   const Footer(),
