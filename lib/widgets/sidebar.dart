@@ -82,8 +82,9 @@ class _SidebarState extends State<Sidebar> {
                                 style: TextStyle(fontSize: 14),
                               ),
                               onTap: () {
-                                Navigator.of(context)
-                                    .pushReplacementNamed('/development');
+                                Navigator.of(
+                                  context,
+                                ).pushReplacementNamed('/development');
                               },
                             ),
                             ListTile(
