@@ -72,6 +72,12 @@ flutter:
     - assets/images/benefit_4.png
     - assets/images/benefit_5.png
     - assets/images/benefit_6.png
+    - assets/images/design_1.png
+    - assets/images/design_2.png
+    - assets/images/design_3.png
+    - assets/images/design_4.png
+    - assets/images/design_5.png
+    - assets/images/design_6.png
     - assets/images/big_commerce.svg
     - assets/images/shopify.svg
     - assets/images/gatsby.svg

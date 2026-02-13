@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import '../widgets/app_header.dart';
 import '../widgets/sidebar.dart';
+import '../widgets/brands.dart';
+import '../widgets/design_benefits.dart';
 import '../widgets/footer.dart';
 
 class DesignPage extends StatelessWidget {
   const DesignPage({super.key});
+
+  // Brand logos
+  final List<String> _brandLogos = const [
+    'assets/images/gatsby.svg',
+    'assets/images/awwards.svg',
+    'assets/images/css_design.svg',
+    'assets/images/jamstack.svg',
+    'assets/images/react_static.svg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +111,12 @@ class DesignPage extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
               ),
+              const SizedBox(height: 48),
+              // Brands section
+              Brands(brandLogos: _brandLogos),
+              const SizedBox(height: 48),
+              // Design Benefits section
+              const DesignBenefits(),
               const SizedBox(height: 48),
               // Footer
               const Footer(),
