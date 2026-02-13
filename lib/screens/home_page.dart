@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/app_header.dart';
-import '../widgets/sidebar.dart';
+import '../widgets/scroll_aware_scaffold.dart';
 import '../widgets/service_card.dart';
 import '../widgets/brands.dart';
 import '../widgets/testimonials.dart';
@@ -62,86 +61,71 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: const Sidebar(),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Builder(
-                builder: (innerCtx) {
-                  return AppHeader(
-                    onLogoPressed: () =>
-                        Navigator.of(innerCtx).pushReplacementNamed('/'),
-                    onMenuPressed: () => Scaffold.of(innerCtx).openDrawer(),
-                  );
-                },
-              ),
-              const SizedBox(height: 24),
-              // Content starts below header
-              const Text(
-                'Fullstack Team as a Service',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 12),
-              const Text(
-                'Get immediate access to a battle‑tested team of designers '
-                'and developers on a pay‑as‑you‑go monthly subscription.',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16, height: 1.4),
-              ),
-              const SizedBox(height: 60),
-              // Service cards
-              Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 300),
-                  child: Column(
-                    children: _services.map((service) {
-                      return Column(
-                        children: [
-                          ServiceCard(
-                            title: service['title']!,
-                            subtitle: service['subtitle']!,
-                            imagePath: service['image'],
-                          ),
-                          const SizedBox(height: 40),
-                        ],
-                      );
-                    }).toList(),
-                  ),
-                ),
-              ),
-              // Brands section
-              Brands(brandLogos: _brandLogos),
-              const SizedBox(height: 48),
-              // Testimonials section
-              Testimonials(testimonials: _testimonials),
-              const SizedBox(height: 12),
-              // Footer CTA section
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: FooterCta(
-                  title: '7-day money-back guarantee',
-                  description:
-                      'We stand by our work. Love it or get your money back in 7 days.',
-                  imagePath: 'assets/images/cta_homepage.png',
-                  onCallPressed: () {
-                    // TODO: Open Calendly or booking page
-                  },
-                  onChatPressed: () {
-                    // TODO: Open chat or contact form
-                  },
-                ),
-              ),
-              const SizedBox(height: 48),
-              // Footer
-              const Footer(),
-            ],
+    return ScrollAwareScaffold(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 8),
+          // Content starts below header
+          const Text(
+            'Fullstack Team as a Service',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
           ),
-        ),
+          const SizedBox(height: 12),
+          const Text(
+            'Get immediate access to a battle‑tested team of designers '
+            'and developers on a pay‑as‑you‑go monthly subscription.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16, height: 1.4),
+          ),
+          const SizedBox(height: 60),
+          // Service cards
+          Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 300),
+              child: Column(
+                children: _services.map((service) {
+                  return Column(
+                    children: [
+                      ServiceCard(
+                        title: service['title']!,
+                        subtitle: service['subtitle']!,
+                        imagePath: service['image'],
+                      ),
+                      const SizedBox(height: 40),
+                    ],
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+          // Brands section
+          Brands(brandLogos: _brandLogos),
+          const SizedBox(height: 48),
+          // Testimonials section
+          Testimonials(testimonials: _testimonials),
+          const SizedBox(height: 12),
+          // Footer CTA section
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: FooterCta(
+              title: '7-day money-back guarantee',
+              description:
+                  'We stand by our work. Love it or get your money back in 7 days.',
+              imagePath: 'assets/images/cta_homepage.png',
+              onCallPressed: () {
+                // TODO: Open Calendly or booking page
+              },
+              onChatPressed: () {
+                // TODO: Open chat or contact form
+              },
+            ),
+          ),
+          const SizedBox(height: 48),
+          // Footer
+          const Footer(),
+        ],
       ),
     );
   }
