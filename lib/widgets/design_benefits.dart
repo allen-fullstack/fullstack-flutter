@@ -7,30 +7,30 @@ class DesignBenefits extends StatelessWidget {
     {
       'image': 'assets/images/design_1.png',
       'text':
-          'Scale your design capacity without wasting time on finding reliable team',
+          'Web & mobile design',
     },
     {
       'image': 'assets/images/design_2.png',
       'text':
-          'Our designers take ownership of their work on every project they join',
+          'Social media, emails and ads graphics',
     },
     {
       'image': 'assets/images/design_3.png',
       'text':
-          'We fund every designer\'s learning, growth and well-being to stay productive',
+          'Logos & branding',
     },
     {
       'image': 'assets/images/design_4.png',
-      'text': 'Cut down recruiting costs and operational overhead and headache',
+      'text': 'Art & illustrations',
     },
     {
       'image': 'assets/images/design_5.png',
       'text':
-          'Proactive communication, consistently delivering detailed progress updates',
+          'Presentations, flyers, brochures and invitations',
     },
     {
       'image': 'assets/images/design_6.png',
-      'text': 'Your secret weapon, extended design team',
+      'text': 'Posters, billboards, banners any business graphics',
     },
   ];
 
